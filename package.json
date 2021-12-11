@@ -1,0 +1,35 @@
+{
+  "name": "telegram-resolve-username",
+  "version": "1.0.0",
+  "description": "A small Node.js library that resolves Telegram @username using t.me shortcut",
+  "author": "Anton Petrov <anton@itsmepetrov.com> (itsmepetrov.com)",
+  "license": "MIT",
+  "homepage": "https://github.com/itsmepetrov/telegram-resolve-username",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itsmepetrov/telegram-resolve-username"
+  },
+  "bugs": {
+    "url": "https://github.com/itsmepetrov/telegram-resolve-username/issues"
+  },
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+		"telegram",
+		"username",
+		"resolve",
+		"shortcut",
+		"api",
+    "tg"
+	],
+  "engines": {
+		"node": ">=14.16"
+	},
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "got": "^12.0.0"
+  }
+}
