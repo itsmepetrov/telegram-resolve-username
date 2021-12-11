@@ -1,15 +1,18 @@
-import got from 'got'
-import cheerio from 'cheerio'
+const axios = require('axios')
+const cheerio = require('cheerio')
 
 const TELEGRAM_BASE_URL = 'https://t.me'
 
-async function telegramResolveUsername(username, options = defaultOptions) {
-  const baseUrl = options.baseUrl || TELEGRAM_BASE_URL
-  const throwOnError = options.throwOnError || false
+async function telegramResolveUsername(username, options = {}) {
+  const {
+    baseUrl = TELEGRAM_BASE_URL,
+    throwOnError = false,
+    ...rest,
+  } = options
 
   try {
-    const response = await got(`${baseUrl}/${username}`)
-    const $ = cheerio.load(response.body)
+    const response = await axios.get(`${baseUrl}/${username}`, rest)
+    const $ = cheerio.load(response.data)
 
     if (!$('.tgme_page_title').length) {
       return null
@@ -23,7 +26,7 @@ async function telegramResolveUsername(username, options = defaultOptions) {
       title,
       photo,
       username,
-      description
+      description,
     }
   } catch (error) {
     if (throwOnError) {
@@ -34,4 +37,4 @@ async function telegramResolveUsername(username, options = defaultOptions) {
   }
 }
 
-export default telegramResolveUsername
+module.exports = telegramResolveUsername
