@@ -4,11 +4,7 @@ const cheerio = require('cheerio')
 const TELEGRAM_BASE_URL = 'https://t.me'
 
 async function telegramResolveUsername(username, options = {}) {
-  const {
-    baseUrl = TELEGRAM_BASE_URL,
-    throwOnError = false,
-    ...rest,
-  } = options
+  const { baseUrl = TELEGRAM_BASE_URL, throwOnError = false, ...rest } = options
 
   try {
     const response = await axios.get(`${baseUrl}/${username}`, rest)

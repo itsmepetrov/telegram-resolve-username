@@ -1,6 +1,6 @@
 {
   "name": "telegram-resolve-username",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A small Node.js library that resolves Telegram @username using t.me shortcut",
   "author": "Anton Petrov <anton@itsmepetrov.com> (itsmepetrov.com)",
   "license": "MIT",
